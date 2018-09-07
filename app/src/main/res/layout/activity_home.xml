@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:fitsSystemWindows="true"
+    android:orientation="vertical">
+
+    <com.kunleen.sn.sportnewsapplication.custom.CustomViewPager
+        android:id="@+id/home_content_viewpager"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1" />
+
+    <include
+        android:id="@+id/line1"
+        layout="@layout/view_devide"
+        android:layout_width="match_parent"
+        android:layout_height="2dp" />
+
+
+    <com.kunleen.sn.sportnewsapplication.custom.MyRadioGroup
+        android:id="@+id/home_tab_group"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_centerInParent="true"
+        android:background="@color/white"
+        android:orientation="horizontal">
+
+        <RadioButton
+            android:id="@+id/home_tab_first_page"
+            style="@style/HomeTabStyle"
+            android:background="@color/white"
+            android:drawableTop="@drawable/home_tab1_img_select"
+            android:text="@string/news" />
+
+        <RadioButton
+            android:id="@+id/rb_tab_match"
+            style="@style/HomeTabStyle"
+            android:background="@color/white"
+            android:drawableTop="@drawable/home_tab2_img_select"
+            android:text="@string/games" />
+
+        <RadioButton
+            android:id="@+id/btn_football"
+            style="@style/HomeTabStyle"
+            android:background="@color/white"
+            android:drawableTop="@drawable/home_tab5_img_select"
+            android:text="@string/discover" />
+
+        <RadioButton
+            android:id="@+id/rb_tab_market"
+            style="@style/HomeTabStyle"
+            android:background="@color/white"
+            android:drawableTop="@mipmap/button_xw_caipiao1"
+            android:text="@string/caipiao"
+            android:textColor="#ffff0000"
+            android:visibility="gone" />
+
+        <RadioButton
+            style="@style/HomeTabStyle"
+            android:background="@color/white"
+            android:drawableTop="@drawable/home_tab4_img_select"
+            android:text="@string/forum" />
+    </com.kunleen.sn.sportnewsapplication.custom.MyRadioGroup>
+
+    <!--<com.kunleen.sn.sportnewsapplication.custom.CircleImageView-->
+    <!--android:id="@+id/civ_home"-->
+    <!--android:layout_width="35dp"-->
+    <!--android:layout_height="35dp"-->
+    <!--android:layout_centerHorizontal="true"-->
+    <!--android:layout_marginTop="5dp"-->
+    <!--android:src="@mipmap/button_xw_zuqiu" />-->
+
+</LinearLayout>

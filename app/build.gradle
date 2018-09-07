@@ -1,0 +1,129 @@
+apply plugin: 'com.android.application'
+
+android {
+//    signingConfigs {
+//        release {
+//            keyAlias 'zjkl'
+//            keyPassword 'zhijiankunlun'
+//            storeFile file('C:/Users/ysy/Desktop/one_pay/one_pay/app/apk/zjkl.keystore')
+//            storePassword 'zhijiankunlun'
+//        }
+//    }
+    compileSdkVersion 26
+    defaultConfig {
+        applicationId "com.kunleen.sn.sportnewsapplication"
+        minSdkVersion 15
+        targetSdkVersion 26
+        versionCode 1
+        versionName "1.0"
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+    }
+    flavorDimensions "default"
+    productFlavors {
+        //VIVO
+        P90001 {
+            manifestPlaceholders = [UMENG_CHANNEL_VALUE: "90001"]
+        }
+        //华为
+        P90002 {
+            manifestPlaceholders = [UMENG_CHANNEL_VALUE: "90002"]
+        }
+//        P40003 {
+//            manifestPlaceholders = [UMENG_CHANNEL_VALUE: "40003"]
+//        }
+//        P40004 {
+//            manifestPlaceholders = [UMENG_CHANNEL_VALUE: "40004"]
+//        }
+//        P40005 {
+//            manifestPlaceholders = [UMENG_CHANNEL_VALUE: "40005"]
+//        }
+    }
+    productFlavors.all { flavor ->
+        flavor.manifestPlaceholders = [UMENG_CHANNEL_VALUE: name]
+    }
+    sourceSets {
+        main {
+            jniLibs.srcDirs = ['libs']
+        }
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            applicationVariants.all { variant ->
+                if (variant.buildType.name == "release") {
+                    variant.outputs.all { output ->
+                        def outputFile = output.outputFile
+                        if (outputFile != null && outputFile.name.endsWith('.apk')) {
+                            // apk_渠道名-版本号-版本名称-编译时间.apk
+                            def fileName = "sportnews-${defaultConfig.versionCode}-v${defaultConfig.versionName}.apk"
+                            outputFileName = fileName
+                        }
+                    }
+                }
+            }
+//            signingConfig signingConfigs.release
+        }
+        debug {
+//            signingConfig signingConfigs.release
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+}
+//for plugin
+apply plugin: 'replugin-plugin-gradle'
+//配置插件宿主信息
+repluginPluginConfig {
+    pluginName = "news"
+    hostApplicationId = "com.aqj.tongcheng"
+    hostAppLauncherActivity = "com.woocp.kunleencaipiao.ui.login.WelcomActivity"
+}
+dependencies {
+    implementation fileTree(include: ['*.jar'], dir: 'libs')
+    compile 'com.qihoo360.replugin:replugin-plugin-lib:2.2.4'
+    implementation 'com.android.support:appcompat-v7:26.1.0'
+    implementation 'com.android.support.constraint:constraint-layout:1.0.2'
+    //微博
+    //    implementation 'com.sina.weibo.sdk:core:4.1.0:openDefaultRelease@aar'
+    implementation files('libs/core-4.1.0-openDefaultRelease.aar')
+    implementation 'com.android.support:multidex:1.0.3'
+    implementation 'com.tbruyelle.rxpermissions2:rxpermissions:0.9.4@aar'
+    implementation 'com.android.support:support-v4:26.1.0'
+    implementation 'com.github.bumptech.glide:glide:4.6.1'
+    annotationProcessor 'com.github.bumptech.glide:compiler:4.6.1'
+    implementation 'com.github.bumptech.glide:annotations:4.6.1'
+    implementation 'com.android.support:design:26.1.0'
+    implementation 'com.github.jdsjlzx:LRecyclerView:1.4.3'
+    implementation 'com.github.lzyzsd:jsbridge:1.0.4'
+    implementation 'org.jsoup:jsoup:1.10.2'
+    implementation 'com.bm.photoview:library:1.4.1'
+    implementation 'com.dou361.ijkplayer-arm64:jjdxm-ijkplayer-arm64:1.0.0'
+    debugCompile 'com.squareup.leakcanary:leakcanary-android:1.5'
+    //leakcanary内存泄漏检测工具
+    releaseCompile 'com.squareup.leakcanary:leakcanary-android-no-op:1.5'
+    testCompile 'com.squareup.leakcanary:leakcanary-android-no-op:1.5'
+    //友盟
+    implementation 'com.umeng.sdk:common:latest.integration'
+    implementation 'com.umeng.sdk:analytics:latest.integration'
+    testImplementation 'junit:junit:4.12'
+    compile project(':jjdxm-ijkplayer')
+    compile project(':jianxiexpression')
+    compile project(':multi-image-selector')
+    androidTestImplementation 'com.android.support.test:runner:1.0.1'
+    androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.1'
+    api 'io.reactivex.rxjava2:rxjava:2.1.7'
+    api 'io.reactivex.rxjava2:rxandroid:2.0.1'
+    api 'com.squareup.retrofit2:retrofit:2.3.0'
+    api 'com.squareup.retrofit2:converter-gson:2.3.0'
+    api 'com.squareup.retrofit2:adapter-rxjava2:2.3.0'
+    api 'com.squareup.okhttp3:okhttp:3.9.0'
+    api 'com.google.code.gson:gson:2.8.2'
+    api 'com.squareup.okhttp3:logging-interceptor:3.9.0'
+    api 'com.orhanobut:logger:2.1.1'
+    //    debugApi 'com.facebook.stetho:stetho:1.5.0'
+    //    debugApi 'com.facebook.stetho:stetho-okhttp3:1.5.0'
+    implementation files('libs/libammsdk.jar')
+}

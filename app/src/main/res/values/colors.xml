@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#3F51B5</color>
+    <color name="colorPrimaryDark">#303F9F</color>
+    <color name="colorAccent">#FF4081</color>
+    <color name="top_bg_color">#fd1c3d</color>
+    <color name="white">#ffffffff</color>
+    <color name="gray">#808080</color> <!-- 灰色 -->
+    <color name="colorBackground">#f1f0f6</color>
+    <color name="black">#000000</color> <!-- 黑色 -->
+    <color name="tv_rl_commodity_color">#fff</color>/>
+    <color name="theme_green">#ff0bb731</color>
+    <color name="font_color">#787474</color>
+    <color name="darkgrey">#A9A9A9</color> <!-- 暗灰色 -->
+    <color name="serach_bac">#ff00693f</color>
+    <color name="tip_text">#9a9a9a</color>
+    <color name="transparent">#000000</color>
+    <!--whell-->
+    <color name="province_line_border">#C7C7C7</color>
+    <color name="blue_font">#ff3999e2</color>
+    <color name="colorText">#9b9b9b</color>
+    <color name="main_color">#2987e9</color>
+</resources>

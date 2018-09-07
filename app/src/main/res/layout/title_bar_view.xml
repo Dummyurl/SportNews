@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="45.0dip">
+
+    <RelativeLayout
+        android:id="@+id/rl_bg"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white" />
+
+    <RelativeLayout
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_centerInParent="true">
+        <!--bar 左边区域显示的文字和图片-->
+        <LinearLayout
+            android:id="@+id/top_back_btn"
+            android:layout_width="80.0dip"
+            android:layout_height="fill_parent"
+            android:layout_alignParentLeft="true"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/top_back_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10.0dip"
+                android:drawableLeft="@mipmap/button_zc_fanhui"
+                android:gravity="center_vertical"
+                android:textColor="@color/tv_rl_commodity_color"
+                android:textSize="17.5dip" />
+        </LinearLayout>
+
+        <!--bar 中间图标显示 -->
+        <ImageView
+            android:id="@+id/top_mid_icon"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:visibility="gone" />
+        <!--bar 中间文字显示 -->
+        <TextView
+            android:id="@+id/top_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:textColor="@color/black"
+            android:textSize="22.0sp" />
+
+        <!--bar 右边图片显示 -->
+        <ImageView
+            android:id="@+id/top_right_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginBottom="5.0dip"
+            android:layout_marginRight="10.0dip"
+            android:layout_marginTop="5.0dip"
+            android:contentDescription="@null"
+            android:src="@mipmap/button_jfsc_fx2"
+            android:visibility="gone" />
+
+        <!--bar 右边文字显示 -->
+        <TextView
+            android:id="@+id/top_right_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="20.0dip"
+            android:textColor="@color/colorPrimary"
+            android:textSize="17.5dip" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_alignParentBottom="true"
+            android:background="@color/tv_rl_commodity_color"
+            android:visibility="gone" />
+
+    </RelativeLayout>
+</RelativeLayout>

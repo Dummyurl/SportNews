@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:orientation="vertical">
+
+
+    <com.kunleen.sn.sportnewsapplication.custom.HeadBannerView
+        android:id="@+id/banner_first_page"
+        android:layout_width="match_parent"
+        android:layout_height="130dp" />
+
+    <LinearLayout
+        android:id="@+id/ll_circle"
+        android:layout_width="match_parent"
+        android:layout_height="90dp"
+        android:orientation="horizontal"
+        android:padding="5dp">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:src="@mipmap/icon_xw_tjqz" />
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/rc_forum"
+            android:layout_width="0dp"
+            android:layout_marginLeft="5dp"
+            android:layout_height="match_parent"
+            android:overScrollMode="never"
+            android:layout_gravity="center"
+            android:layout_weight="1" />
+
+        <!--<ImageView-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_gravity="center"-->
+            <!--android:src="@mipmap/button_xw_xiangyou2" />-->
+    </LinearLayout>
+
+    <include
+        layout="@layout/view_devide"
+        android:layout_width="match_parent"
+        android:layout_height="5dp" />
+</LinearLayout>
